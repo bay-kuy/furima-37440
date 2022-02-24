@@ -22,3 +22,62 @@ Things you may want to cover:
 * Deployment instructions
 
 * ...
+
+## users テーブル
+
+| Column             | Type    | Options     |
+| ------------------ | ------- | ----------- |
+| nickname           | string  | null: false |
+| email              | string  | null: false |
+| encrypted_password | string  | null: false |
+| first_name         | string  | null: false |
+| second_name        | string  | null: false |
+| first_name_kana    | string  | null: false |
+| second_name_kana   | string  | null: false |
+| birthday           | integer | null: false |
+
+### Association
+
+
+### items テーブル
+
+| Column               | Type       | Options                        |
+| -------------------- | ---------- | ------------------------------ |
+| name                 | string     | null: false                    |
+| description          | text       | null: false                    |
+| user                 | references | null: false, foreign_key: true |
+| category_id          | integer    | null: false                    |
+| condition_id         | integer    | null: false                    |
+| postage_id           | integer    | null: false                    |
+| seller_prefecture_id | integer    | null: false                    |
+| ship_date_id         | integer    | null: false                    |
+| price                | integer    | null: false                    |
+
+
+### Association
+
+
+### deal_logs テーブル
+
+| Column | Type       | Options                        |
+| ------ | ---------- | ------------------------------ |
+| item   | references | null: false, foreign_key: true |
+| user   | references | null: false, foreign_key: true |
+
+### Association
+
+
+### addresses テーブル
+
+| Column           | Type       | Options |
+| ---------------- | ---------- | ------- |
+| postcode         | integer    | null: false                    |
+| prefecture_id    | integer    | null: false                    |
+| city             | text       | null: false                    |
+| numbers          | integer    | null: false                    |
+| building         | text       |                                |
+| telephone_number | integer    | null: false                    |
+| user             | references | null: false, foreign_key: true |
+
+
+### Association
