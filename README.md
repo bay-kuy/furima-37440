@@ -73,7 +73,7 @@ Things you may want to cover:
 
 ### Association
 
-- has_one :items
+- belongs_to :items
 - belongs_to :user
 - has_one :address
 
@@ -88,7 +88,7 @@ Things you may want to cover:
 | numbers          | string     | null: false                    |
 | building         | string     |                                |
 | telephone_number | string     | null: false                    |
-| deal_logs        | references | null: false, foreign_key: true |
+| deal_log         | references | null: false, foreign_key: true |
 
 
 ### Association
