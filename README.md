@@ -40,7 +40,7 @@ Things you may want to cover:
 
 - has_many :items
 - has_many :deal_logs
-- has_one :address
+
 
 
 ### items テーブル
@@ -70,7 +70,6 @@ Things you may want to cover:
 | ------- | ---------- | ------------------------------ |
 | item    | references | null: false, foreign_key: true |
 | user    | references | null: false, foreign_key: true |
-| address | references | null: false, foreign_key: true |
 
 ### Association
 
@@ -89,8 +88,9 @@ Things you may want to cover:
 | numbers          | string     | null: false                    |
 | building         | string     |                                |
 | telephone_number | string     | null: false                    |
+| deal_logs        | references | null: false, foreign_key: true |
 
 
 ### Association
 
-- has_one :deal_log
+- belongs_to :deal_log
