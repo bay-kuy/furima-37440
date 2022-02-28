@@ -61,6 +61,51 @@ RSpec.describe User, type: :model do
         @user.valid?
         expect(@user.errors.full_messages).to include("Password confirmation doesn't match Password")
       end
+      it '名字なし' do
+        @user.second_name = ''
+        @user.valid?
+        expect(@user.errors.full_messages).to include("Second name can't be blank")
+      end
+      it '名前なし' do
+        @user.first_name = ''
+        @user.valid?
+        expect(@user.errors.full_messages).to include("First name can't be blank")
+      end
+      it '名字に半角文字を入力' do
+        @user.second_name = 'aｱ'
+        @user.valid?
+        expect(@user.errors.full_messages).to include("Second name 全角文字を使用してください")
+      end
+      it '名前に半角文字を入力' do
+        @user.first_name = 'bｲ'
+        @user.valid?
+        expect(@user.errors.full_messages).to include("First name 全角文字を使用してください")
+      end
+      it '名字カナなし' do
+        @user.second_name_kana = ''
+        @user.valid?
+        expect(@user.errors.full_messages).to include("Second name kana can't be blank")
+      end
+      it '名前カナなし' do
+        @user.first_name_kana = ''
+        @user.valid?
+        expect(@user.errors.full_messages).to include("First name kana can't be blank")
+      end
+      it '名字カナにひらがなを入力' do
+        @user.second_name_kana = 'あい'
+        @user.valid?
+        expect(@user.errors.full_messages).to include("Second name kana 全角カタカナを使用してください")
+      end
+      it '名前カナにひらがなを入力' do
+        @user.first_name_kana = 'うえお'
+        @user.valid?
+        expect(@user.errors.full_messages).to include("First name kana 全角カタカナを使用してください")
+      end
+      it '誕生日なし' do
+        @user.birthday = ''
+        @user.valid?
+        expect(@user.errors.full_messages).to include("Birthday can't be blank")
+      end
     end
   end
 
