@@ -5,4 +5,9 @@ class Item < ApplicationRecord
   belongs_to :postage
   belongs_to :prefecture
   belongs_to :ship_date
+
+  has_one_attached :image
+  belongs_to :user
+
+  
 end
