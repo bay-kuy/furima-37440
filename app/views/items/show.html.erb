@@ -30,8 +30,8 @@
       <%= link_to "削除", item_path(@item.id), method: :delete, class:"item-destroy" %>
       <% end %>
 
-      <% unless current_user.id == @item.user_id%>
-      <%= link_to "購入画面に進む", deal_logs_path ,class:"item-red-btn"%>
+      <% unless current_user.id == @item.user_id %>
+      <%= link_to "購入画面に進む", item_deal_logs_path(@item.id) ,class:"item-red-btn"%>
       <% end %>
     <% end %>
 
