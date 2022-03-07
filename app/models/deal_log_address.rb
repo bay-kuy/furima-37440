@@ -10,7 +10,7 @@ class DealLogAddress
   end
 
   def save
-    deal_log = DealLog.create(user_id: user.id, item_id: item.id)
+    deal_log = DealLog.create(user_id: current_user.id, item_id: item.id)
     Address.create(postcode: postcode, prefecture: prefecture, city: city, numbers: numbers, building: building, telephone_number: telephone_number, deal_log_id: deal_log.id)
   end
 end
