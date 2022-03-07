@@ -1,0 +1,2 @@
+class DealLog < ApplicationRecord
+end
