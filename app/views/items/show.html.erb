@@ -31,7 +31,7 @@
       <% end %>
 
       <% unless current_user.id == @item.user_id%>
-      <%= link_to "購入画面に進む", "#" ,class:"item-red-btn"%>
+      <%= link_to "購入画面に進む", deal_logs_path ,class:"item-red-btn"%>
       <% end %>
     <% end %>
 
