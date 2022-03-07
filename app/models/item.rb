@@ -10,6 +10,7 @@ class Item < ApplicationRecord
 
   has_one_attached :image
   belongs_to :user
+  has_one :deal_log
 
   validates :image, :name, :description, presence: true
   validates :category_id, :condition_id, :postage_id, :prefecture_id,:ship_date_id, numericality: { other_than: 0, message: "can't be blank"}
