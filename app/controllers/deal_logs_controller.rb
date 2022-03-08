@@ -30,7 +30,7 @@ class DealLogsController < ApplicationController
 
   def move_to_items_index
     if user_signed_in?
-      if current_user.id == @item.user_id
+      if current_user.id == @item.user_id || @item.deal_log.present?
         redirect_to root_path
       end
     else
