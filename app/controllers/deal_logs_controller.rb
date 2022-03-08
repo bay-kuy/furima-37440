@@ -8,7 +8,6 @@ class DealLogsController < ApplicationController
   def create
     @item = Item.find(params[:item_id])
     @deal_log_address = DealLogAddress.new(deal_log_params)
-    binding.pry
     if @deal_log_address.valid?
       @deal_log_address.save
       return redirect_to root_path
