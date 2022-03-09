@@ -1,6 +1,6 @@
 class DealLogAddress
   include ActiveModel::Model
-  attr_accessor :user_id, :item_id, :postcode, :prefecture_id, :city, :numbers, :building, :telephone_number
+  attr_accessor :user_id, :item_id, :postcode, :prefecture_id, :city, :numbers, :building, :telephone_number, :token
 
   with_options presence: true do
     validates :user_id, :item_id, :city, :numbers

@@ -8,7 +8,6 @@ class DealLogsController < ApplicationController
   end
 
   def create
-
     @deal_log_address = DealLogAddress.new(deal_log_params)
     if @deal_log_address.valid?
       @deal_log_address.save
@@ -21,7 +20,7 @@ class DealLogsController < ApplicationController
   private
 
   def deal_log_params
-    params.require(:deal_log_address).permit(:postcode, :prefecture_id, :city, :numbers, :building, :telephone_number).merge(user_id: current_user.id, item_id: params[:item_id])
+    params.require(:deal_log_address).permit(:postcode, :prefecture_id, :city, :numbers, :building, :telephone_number).merge(user_id: current_user.id, item_id: params[:item_id], token: params[:token])
   end
 
   def set_item
