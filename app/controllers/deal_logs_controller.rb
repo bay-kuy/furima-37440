@@ -10,6 +10,7 @@ class DealLogsController < ApplicationController
   def create
     @deal_log_address = DealLogAddress.new(deal_log_params)
     if @deal_log_address.valid?
+      pay_item
       @deal_log_address.save
       return redirect_to root_path
     else
@@ -35,5 +36,14 @@ class DealLogsController < ApplicationController
     else
       redirect_to root_path
     end
+  end
+
+  def pay_item
+    Payjp.api_key = "sk_test_d2b8dfdd5a4866e2396a7088"  
+    Payjp::Charge.create(
+      amount: @item.price,
+      card: deal_log_params[:token],
+      currency: 'jpy'
+    )
   end
 end
