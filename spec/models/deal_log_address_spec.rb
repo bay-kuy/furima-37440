@@ -84,6 +84,16 @@ RSpec.describe DealLogAddress, type: :model do
         @deal_log_address.valid?
         expect(@deal_log_address.errors.full_messages).to include("Telephone number 10桁もしくは11桁の半角数字を使用してください")
       end
+      it 'userが紐づいていない' do
+        @deal_log_address.user_id = nil
+        @deal_log_address.valid?
+        expect(@deal_log_address.errors.full_messages).to include("User can't be blank")
+      end
+      it 'itemが紐づいていない' do
+        @deal_log_address.item_id = nil
+        @deal_log_address.valid?
+        expect(@deal_log_address.errors.full_messages).to include("Item can't be blank")
+      end
     end
   end
 end
