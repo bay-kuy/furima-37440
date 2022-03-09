@@ -19,6 +19,11 @@ RSpec.describe DealLog, type: :model do
     end
 
     describe '商品が購入できない場合' do
+      it 'tokenなし' do
+        @deal_log_address.token = nil
+        @deal_log_address.valid?
+        expect(@deal_log_address.errors.full_messages).to include("Token can't be blank")
+      end
       it '郵便番号なし' do
         @deal_log_address.postcode = ''
         @deal_log_address.valid?

@@ -1,5 +1,6 @@
 FactoryBot.define do
   factory :deal_log_address do
+    token            {"tok_abcdefghijk00000000000000000"}
     postcode         {'123-4567'}
     prefecture_id    {14}
     city             {'横浜市緑区'}
