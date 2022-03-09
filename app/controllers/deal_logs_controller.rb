@@ -39,7 +39,7 @@ class DealLogsController < ApplicationController
   end
 
   def pay_item
-    Payjp.api_key = "sk_test_d2b8dfdd5a4866e2396a7088"  
+    Payjp.api_key = ENV["PAYJP_SECRET_KEY"]  
     Payjp::Charge.create(
       amount: @item.price,
       card: deal_log_params[:token],
