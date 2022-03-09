@@ -1,4 +1,5 @@
 class DealLogsController < ApplicationController
+  before_action :authenticate_user!
   before_action :set_item
   before_action :move_to_items_index
 
