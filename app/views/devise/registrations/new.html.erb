@@ -3,13 +3,16 @@
 <%= form_with model: @user, url: user_registration_path, class: 'registration-main', local: true do |f| %>
 <div class='form-wrap'>
   <div class='form-header'>
-
     <h1 class='form-header-text'>
       会員情報入力
     </h1>
-    <%= link_to "Facebookで登録", user_facebook_omniauth_authorize_path, method: :post %>
-    <%= link_to "Googleで登録", user_google_oauth2_omniauth_authorize_path, method: :post %>
-
+  </div>
+  <div class='sign-up-with-sns'>
+    <div>持っているアカウントで続ける</div>
+      <div class='sns-buton-list'>
+      <%= link_to image_tag("f_logo_RGB-Blue_58.png", class:"f-logo"), user_facebook_omniauth_authorize_path, method: :post%>
+      <%= link_to image_tag("icons8-googleのロゴ-48.png", class:"g-logo"), user_google_oauth2_omniauth_authorize_path, method: :post%>
+      </div>
   </div>
 
   <%= render partial: "shared/error_messages", locals: { model: f.object } %>
