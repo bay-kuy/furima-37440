@@ -25,23 +25,34 @@ Things you may want to cover:
 
 ## users テーブル
 
-| Column             | Type    | Options                    |
-| ------------------ | -------- | -------------------------- |
-| nickname           | string   | null: false               |
-| email              | string   | null: false, unique: true |
-| encrypted_password | string   | null: false               |
-| first_name         | string   | null: false               |
-| second_name        | string   | null: false               |
-| first_name_kana    | string   | null: false               |
-| second_name_kana   | string   | null: false               |
-| birthday           | date     | null: false               |
+| Column             | Type   | Options                   |
+| ------------------ | ------ | ------------------------- |
+| nickname           | string | null: false               |
+| email              | string | null: false, unique: true |
+| encrypted_password | string | null: false               |
+| first_name         | string | null: false               |
+| second_name        | string | null: false               |
+| first_name_kana    | string | null: false               |
+| second_name_kana   | string | null: false               |
+| birthday           | date   | null: false               |
 
 ### Association
 
 - has_many :items
 - has_many :deal_logs
+- has_many :sns_credential
 
+### sns_credential テーブル
 
+| Column   | Type       | Option            |
+| -------- | ---------- | ----------------- |
+| provider | string     |                   |
+| uid      | string     |                   |
+| user     | references | foreign_key: true |
+
+### Association
+
+- belong_to :user
 
 ### items テーブル
 
