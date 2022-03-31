@@ -80,6 +80,14 @@
   padding: 2vh 0;
 }
 
+.preview-image {
+  height: 35vh;
+  width: 42vw;
+  min-height: 350px;
+  background-color: rgb(205, 202, 202);
+  object-fit: contain;
+}
+
 .click-upload {
   margin: 15px 0;
   min-width: 250px;
