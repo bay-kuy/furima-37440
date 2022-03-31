@@ -74,6 +74,18 @@ Things you may want to cover:
 - belongs_to :user
 - has_one :deal_log
 
+### comments テーブル
+
+| Column  | Type       | Options                        |
+| ------- | ---------- | ------------------------------ |
+| item    | references | null: false, foreign_key: true |
+| user    | references | null: false, foreign_key: true |
+| text    | text       | null: false                    |
+
+### Association
+
+- belongs_to :item
+- belongs_to :user
 
 ### deal_logs テーブル
 
