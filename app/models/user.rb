@@ -6,6 +6,7 @@ class User < ApplicationRecord
          :omniauthable, omniauth_providers: [:facebook, :google_oauth2]
 
   has_many :sns_credentials
+  has_many :comments
   has_many :items
   has_many :deal_logs
   
